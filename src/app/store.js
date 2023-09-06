@@ -5,6 +5,7 @@ import fetch_data_reducer from "../features/app_slice";
 import data_form_reducer from "../features/data_form_slice";
 import sort_reducer from "../features/sort_slice";
 import search_reducer from "../features/search_slice";
+import edit_reducer from "../features/edit_slice";
 
 export const store = configureStore({
   reducer: {
@@ -13,5 +14,6 @@ export const store = configureStore({
     data_created: data_form_reducer,
     sort: sort_reducer,
     search: search_reducer,
+    edit: edit_reducer,
   },
 });

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Data from "./Data";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { edit_form_toggle } from "../features/edit_slice";
 
 const Body = (props) => {
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   // const [sortBy, setSortBy] = useState("Default"); // Default sorting
   const sortBy = useSelector((state) => state.sort.value.sort_opt);
@@ -15,7 +17,7 @@ const Body = (props) => {
           "https://ims-server-u07j.onrender.com/user/get_data"
         );
         const jsonData = await response.json();
-        console.log(jsonData);
+
         setData(jsonData.obj);
       } catch (error) {
         console.error("Fetch error:", error);
@@ -25,7 +27,31 @@ const Body = (props) => {
   }, []);
 
   // Callback function to handle editing
+  // Maintain a set of unique handles
+  const uniqueHandles = new Set(data.map((item) => item.handle));
+
+  // Callback function to handle editing
   const handleEdit = async (editedData) => {
+    // Find the current data item that matches the editedData _id
+    const currentData = data.find((item) => item._id === editedData._id);
+
+    // Check if the edited name is different from the current name
+    if (currentData.name !== editedData.name) {
+      // Name has changed, no need to check handle duplication
+      await performEdit(editedData);
+    } else if (currentData.followers !== editedData.followers) {
+      // Followers has changed, no need to check handle duplication
+      await performEdit(editedData);
+    } else if (!uniqueHandles.has(editedData.handle)) {
+      // Handle is unique, perform the edit
+      await performEdit(editedData);
+    } else {
+      alert("Handle already exists!");
+    }
+  };
+
+  // Function to perform the actual edit after checks
+  const performEdit = async (editedData) => {
     try {
       const response = await fetch(
         `https://ims-server-u07j.onrender.com/user/edit_data/${editedData._id}`,
@@ -46,6 +72,7 @@ const Body = (props) => {
         );
         const jsonData = await response.json();
         setData(jsonData.obj);
+        dispatch(edit_form_toggle(false));
       } else {
         console.error("Edit request failed");
       }

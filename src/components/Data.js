@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { edit_form_toggle } from "../features/edit_slice";
 
 const Data = (props) => {
+  const dispatch = useDispatch();
+  let show_edit_form = useSelector((state) => state.edit.showForm);
   const { data, onEdit, onDelete } = props;
   const [isEdit, setEdit] = useState(false);
   const [editedData, setEditedData] = useState({ ...data });
@@ -9,6 +13,7 @@ const Data = (props) => {
   const editHandle = () => {
     if (!isEdit) {
       setEdit(true);
+      dispatch(edit_form_toggle(true));
     } else setEdit(false);
   };
   const delete_handle = (e) => {
@@ -19,7 +24,10 @@ const Data = (props) => {
     e.preventDefault();
     // Call the callback function to handle editing
     onEdit(editedData);
-    setEdit(false);
+    console.log(show_edit_form);
+    if (show_edit_form == false) {
+      setEdit(false);
+    }
   };
 
   return (

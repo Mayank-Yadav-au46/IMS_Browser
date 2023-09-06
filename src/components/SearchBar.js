@@ -35,10 +35,14 @@ const SearchBar = () => {
       (item) => item[searchBy].toLowerCase() === searchValue
     );
 
-    console.log(foundData);
-    setshowData(foundData);
-    dispatch(searchData(true));
-    dispatch(searchedObj(foundData));
+    if (foundData.length === 0) {
+      alert("Incorrect Data");
+    } else {
+      console.log(foundData);
+      setshowData(foundData);
+      dispatch(searchData(true));
+      dispatch(searchedObj(foundData));
+    }
   }
 
   return (
