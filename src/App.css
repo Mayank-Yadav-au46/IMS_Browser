@@ -1,38 +1,283 @@
-.App {
-  text-align: center;
+html {
+  background-color: rgba(0, 0, 0, 0.788);
+  height: 100%;
+}
+body {
+  margin: 0%;
+  padding: 0%;
+}
+button {
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.863);
+  padding: 1%;
+  box-shadow: 1px 5px 6px black;
+  margin: 2px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header > span {
+  color: rgba(12, 25, 214, 0.589);
+  font-size: 2rem;
+  font-weight: 400;
+  text-shadow: 1px 5px 8px rgba(158, 75, 7, 0.432);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.control_bar {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 3px;
+  margin-top: 20px;
+  padding: 1%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.863);
+  color: rgba(255, 255, 255, 0.678);
+  box-shadow: 1px 3px 8px black;
+}
+
+.create_data_btn > button {
+  border: 0px;
+  padding: 1%;
+  height: 2rem;
+  width: 8rem;
+  border-radius: 4px;
+  color: rgb(199, 196, 196);
+  font-size: 1rem;
+  font-weight: 300;
+  background-color: rgba(3, 3, 114, 0.952);
+  box-shadow: 2px 5px 8px rgba(78, 77, 77, 0.452);
+}
+.search_bar > input {
+  margin: 5px;
+  border-radius: 8px;
+  height: 1.2rem;
+  background-color: gray;
+  border: 0px;
+}
+.search_bar > button {
+  border: 0px;
+  height: 1.5rem;
+  width: 5rem;
+  margin-right: 8px;
+  border-radius: 5px;
+  background-color: rgba(3, 3, 114, 0.952);
+  color: rgb(199, 196, 196);
+  box-shadow: 2px 5px 8px rgba(78, 77, 77, 0.452);
+}
+
+.data_form {
+  margin-left: 15%;
+  width: 65rem;
+  border-radius: 10px;
+}
+.data_form > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.5%;
+  background-color: rgba(0, 0, 0, 0.445);
+  box-shadow: 0px 10px 20px black;
+  color: rgb(199, 196, 196);
+  padding: 1%;
+}
+.data_form label {
+  color: rgb(199, 196, 196);
+  margin: 5px;
+}
+.data_form input {
+  border-radius: 8px;
+  background-color: gray;
+  border: 0px;
+  margin-left: 5px;
+  margin-right: 2rem;
+  padding: 2px;
+  padding-left: 3%;
+}
+.data_form button {
+  border-radius: 5px;
+  border: 0px;
+  margin-right: 10px;
+  width: 6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(216, 208, 208);
+}
+.sort_toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 13rem;
+}
+.sort_toggle label {
+  border: 0px;
+  padding: 0%;
+  height: 1.5rem;
+  width: 5rem;
+  border-radius: 4px;
+  color: rgb(199, 196, 196);
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgba(3, 3, 114, 0.952);
+  box-shadow: 2px 5px 8px rgba(78, 77, 77, 0.452);
+}
+.sort_toggle select {
+  border-radius: 8px;
+  background-color: gray;
+  width: 6rem;
+  border: 0px;
+  margin-left: 0rem;
+  margin-right: 1rem;
+}
+.content {
+  margin-top: 1rem;
+  padding: 3px;
+  border: 0px;
+}
+.data_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.3%;
+  background-color: rgba(0, 0, 0, 0.712);
+  margin: 4px 0px;
+}
+.data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 75%;
+  height: 2.6rem;
+}
+.data_name {
+  width: 15rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgba(219, 211, 211, 0.61);
+}
+.data_name > label {
+  margin-left: 10px;
+}
+.data_handle {
+  color: rgb(209, 139, 9);
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 15rem;
+  margin-left: -2rem;
+}
+.followers {
   color: white;
+  width: 10rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.App-link {
-  color: #61dafb;
+.data_btn {
+  padding: 0%;
+  margin: 1px;
+  margin-right: 1rem;
+  width: 7rem;
+  display: flex;
+  justify-content: space-between;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.data_btn > button {
+  border: 0px;
+  padding: 1%;
+  width: 2.9rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.data_edit {
+  background-color: rgb(5, 133, 5);
+  color: wheat;
+}
+.data_delete {
+  background-color: rgb(185, 6, 6);
+  color: wheat;
+}
+.edit_form {
+  margin-left: 2%;
+  width: 80rem;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  height: 1.5rem;
+}
+.edit_form > form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.2%;
+  background-color: rgba(119, 102, 3, 0.589);
+  box-shadow: 0px 10px 20px black;
+  color: rgb(199, 196, 196);
+  height: 1.6rem;
+  border-radius: 10px;
+}
+.edit_form label {
+  color: rgb(199, 196, 196);
+  margin: 5px;
+}
+.edit_form input {
+  border-radius: 8px;
+  background-color: gray;
+  border: 0px;
+  margin-left: 5px;
+  margin-right: 2rem;
+}
+.edit_form button {
+  border-radius: 5px;
+  border: 0px;
+  margin-right: 10px;
+  width: 6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(216, 208, 208);
+}
+.searched_cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.274);
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px black;
+}
+.searched_data {
+  display: flex;
+  flex-direction: row;
+  width: 22rem;
+}
+.searched_data > label {
+  margin-top: 12px;
+  margin-left: 15px;
+  font-size: 25px;
+}
+.searched_cont > button {
+  margin-right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  margin-top: 7px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  border-radius: 15px;
+  border: 0px;
+}
+.search_data_name {
+  margin: 1rem 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  color: rgb(7, 104, 4);
+  padding: 1%;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.search_select {
+  background-color: gray;
+  height: 1.3rem;
+  border-radius: 5px;
+  margin: 0px 5px;
 }
